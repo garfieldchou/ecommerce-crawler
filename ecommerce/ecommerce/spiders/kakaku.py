@@ -11,7 +11,9 @@ class KakakuSpider(CrawlSpider):
 
     rules = (
         Rule(LinkExtractor(restrict_xpaths="//a[@class='p-item_visual is-biggerlinkBigger s-biggerlinkHover_alpha']",
-                           process_value=lambda link: link.replace('?lid=pc_ksearch_kakakuitem', 'spec')),
+                           process_value=lambda link: link.replace(
+                               '?lid=pc_ksearch_kakakuitem', 'spec'),
+                           allow=r"^https://kakaku.com/item"),
              callback='parse_item', follow=True),
         Rule(LinkExtractor(
             restrict_xpaths="//li[@class='p-pager_btn p-pager_btn_next']/a"))
