@@ -13,6 +13,8 @@ class KakakuSpider(CrawlSpider):
         Rule(LinkExtractor(restrict_xpaths="//a[@class='p-item_visual is-biggerlinkBigger s-biggerlinkHover_alpha']",
                            process_value=lambda link: link.replace('?lid=pc_ksearch_kakakuitem', 'spec')),
              callback='parse_item', follow=True),
+        Rule(LinkExtractor(
+            restrict_xpaths="//li[@class='p-pager_btn p-pager_btn_next']/a"))
     )
 
     def parse_item(self, response):
