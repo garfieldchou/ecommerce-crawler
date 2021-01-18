@@ -10,7 +10,8 @@ class CitilinkSearchSpider(CrawlSpider):
 
     rules = (
         Rule(LinkExtractor(restrict_xpaths="//div[@class='ProductCardVertical__description ']/a",
-                           process_value=lambda link: link + 'properties'),
+                           process_value=lambda link: link + 'properties/',
+                           allow=r"^https://www.citilink.ru/catalog/mobile/notebooks"),
              callback='parse_item',
              follow=True),
     )
