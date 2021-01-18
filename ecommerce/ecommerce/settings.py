@@ -89,3 +89,4 @@ AUTOTHROTTLE_ENABLED = True
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 FEED_EXPORT_ENCODING = 'utf-8'
+DEPTH_LIMIT = 1
